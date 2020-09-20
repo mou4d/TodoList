@@ -21,12 +21,14 @@
 
         <div class=".app-body">
             <ul>
-                <li v-for="task in tasks" :class="{'task-complited':task.completed}">
+                <li v-for="task,index in tasks" :class="{'task-complited':task.completed}">
                     <span @click="task.completed= !task.completed" >
                         <input type="checkbox" id="chkTaskComplete" :checked="task.completed">
                     </span>
                     <span>{{task.text}}</span>
-                    <span><button>X</button></span>
+                    <span>
+                        <button @click="deleteTask(index)">X</button>
+                    </span>
                 </li>
             </ul>
         </div>
