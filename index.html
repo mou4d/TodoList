@@ -16,8 +16,11 @@
                 <h1>TODO LIST</h1>
             </div>
             <div class="input-container">
+                <input type="checkbox" name="allComp" id="all" v-model="allDone">
                 <input type="text" name="task" id="txtTask" v-model="newTask" v-on:keydown.enter="addNewTask">
+                
             </div>
+            <div style="text-align: center; margin: 5px 0;" class="text text-danger">Tasks need to be completed : {{remainingTasks}}</div>
         </div>
 
         <div class="app-body">
@@ -38,7 +41,7 @@
             <a href="#" class="btn btn-sm btn-light" @click.prevent="filter='all'">ALL</a>
             <a href="#" class="btn btn-sm btn-light" @click.prevent="filter='active'">Active</a>
             <a href="#" class="btn btn-sm btn-light" @click.prevent="filter='complete'">Complete</a>
-            <a href="#" class="float-right btn btn-sm btn-light" @click.prevent>Clear Completed</a>
+            <a href="#" class="float-right btn btn-sm btn-light" @click.prevent="deleteCompleteTasks">Clear Completed</a>
         </div>
 
     </div>
