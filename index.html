@@ -22,7 +22,7 @@
 
         <div class="app-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item" v-for="task,index in tasks" >
+                <li class="list-group-item" v-for="task,index in filterdTasks" >
                     <span>
                         <input type="checkbox" id="chkTaskComplete" :checked="task.completed" @click="task.completed= !task.completed">
                     </span>
@@ -35,10 +35,10 @@
         </div>
             
         <div class="card-footer">
-            <button class="btn btn-sm btn-light">ALL</button>
-            <button class="btn btn-sm btn-light">Active</button>
-            <button class="btn btn-sm btn-light">Complete</button>
-            <button class="float-right btn btn-sm btn-light">Clear Completed</button>
+            <a href="#" class="btn btn-sm btn-light" @click.prevent="filter='all'">ALL</a>
+            <a href="#" class="btn btn-sm btn-light" @click.prevent="filter='active'">Active</a>
+            <a href="#" class="btn btn-sm btn-light" @click.prevent="filter='complete'">Complete</a>
+            <a href="#" class="float-right btn btn-sm btn-light" @click.prevent>Clear Completed</a>
         </div>
 
     </div>

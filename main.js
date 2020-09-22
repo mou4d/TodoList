@@ -1,6 +1,22 @@
+var filters = {
+    'all': function (tasks){
+        return tasks;
+    },
+    'complete': function (tasks){
+        return tasks.filter(function (task){
+            return task.completed;
+        });
+    },
+    'active': function (tasks) {
+        return tasks.filter(function(task){
+            return ! task.completed;
+        });
+    }
+}
 new Vue({
     'el': '#app',
     'data': {
+        filter: "all",
         newTask:"",
         tasks:[
             {text:"Task1", completed:false},
@@ -8,7 +24,12 @@ new Vue({
             {text:"Task3", completed:true},
         ]
     },
-    'methods':{
+    'computed': {
+        filterdTasks: function(task){
+            return filters[ this.filter ](this.tasks);
+        }
+    },
+    'methods': {
         addNewTask: function (){
             if(this.newTask === "")
                 return;
