@@ -24,3 +24,16 @@
 .span-text{
     margin: 0px 5%;
 }
+.list-group-item input[type="text"]{
+    margin: 0px 5%;
+    width: 80%;
+}
+.edit{
+    display: none;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: inline;
+}

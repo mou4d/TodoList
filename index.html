@@ -29,7 +29,9 @@
                     <span>
                         <input type="checkbox" id="chkTaskComplete" :checked="task.completed" @click="task.completed= !task.completed">
                     </span>
-                    <span class="span-text" :class="{'task-complited':task.completed}" >{{task.text}}</span>
+                    <span class="span-text" :class="{'task-complited':task.completed}"   @dblclick="startEditing(task, $event)" >
+                        {{task.text}}</span>
+                    <input type="text" class="edit" id="edit" v-model="updatedTask" v-on:keydown.enter = "endEditig">
                     <span>
                         <button class="float-right" @click="deleteTask(index)">X</button>
                     </span>
